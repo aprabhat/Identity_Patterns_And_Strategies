@@ -1,0 +1,48 @@
+{
+  "realm": "Globex",
+  "enabled": true,
+  "users": [
+    {
+      "username": "tony",
+      "enabled": true,
+      "email": "tony@globex.com",
+      "firstName": "Tony",
+      "lastName": "Stark",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "tony",
+          "temporary": false
+        }
+      ]
+    },
+    {
+      "username": "bruce",
+      "enabled": true,
+      "email": "bruce@globex.com",
+      "firstName": "Bruce",
+      "lastName": "Wayne",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "bruce",
+          "temporary": false
+        }
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "globex-app",
+      "enabled": true,
+      "publicClient": true,
+      "redirectUris": [
+        "http://localhost:9002/*"
+      ],
+      "protocol": "openid-connect",
+      "credentials": {
+        "secret": "globexsecret"
+      }
+    }
+  ]
+}
