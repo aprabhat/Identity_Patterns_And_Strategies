@@ -35,14 +35,14 @@
     {
       "clientId": "globex-app",
       "enabled": true,
-      "publicClient": true,
+	  "name": "globex-app",
+      "publicClient": false,
+      "clientAuthenticatorType": "client-secret",
       "redirectUris": [
         "http://localhost:9002/*"
       ],
       "protocol": "openid-connect",
-      "credentials": {
-        "secret": "globexsecret"
-      }
+      "secret": "globexsecret"
     }
   ]
 }

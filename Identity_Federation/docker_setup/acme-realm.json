@@ -35,14 +35,14 @@
     {
       "clientId": "acme-app",
       "enabled": true,
-      "publicClient": true,
+	  "name": "acme-app",
+      "publicClient": false,
+      "clientAuthenticatorType": "client-secret",
       "redirectUris": [
         "http://localhost:9001/*"
       ],
       "protocol": "openid-connect",
-      "credentials": {
-        "secret": "acmesecret"
-      }
+      "secret": "acmesecret"
     }
   ]
 }
