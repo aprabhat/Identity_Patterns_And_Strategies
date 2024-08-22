@@ -1,48 +1,49 @@
 {
-  "realm": "Globex",
+  "realm": "globex",
   "enabled": true,
-  "users": [
+  "clients": [
     {
-      "username": "tony",
+      "clientId": "globex-app",
+	  "name": "globex-app",
       "enabled": true,
-      "email": "tony@globex.com",
-      "firstName": "Tony",
-      "lastName": "Stark",
-      "credentials": [
-        {
-          "type": "password",
-          "value": "tony",
-          "temporary": false
-        }
-      ]
-    },
+      "clientAuthenticatorType": "client-secret",
+      "secret": "globexsecret",
+      "redirectUris": [
+        "http://localhost:8080/*"
+      ],
+      "baseUrl": "http://localhost:8080",
+      "directAccessGrantsEnabled": true,
+      "publicClient": false,
+      "protocol": "openid-connect",
+      "standardFlowEnabled": true
+    }
+  ],
+  "users": [
     {
       "username": "bruce",
       "enabled": true,
-      "email": "bruce@globex.com",
+      "emailVerified": true,
       "firstName": "Bruce",
       "lastName": "Wayne",
       "credentials": [
         {
           "type": "password",
-          "value": "bruce",
-          "temporary": false
+          "value": "simplepassword"
         }
       ]
-    }
-  ],
-  "clients": [
+    },
     {
-      "clientId": "globex-app",
+      "username": "clark",
       "enabled": true,
-	  "name": "globex-app",
-      "publicClient": false,
-      "clientAuthenticatorType": "client-secret",
-      "redirectUris": [
-        "http://localhost:9002/*"
-      ],
-      "protocol": "openid-connect",
-      "secret": "globexsecret"
+      "emailVerified": true,
+      "firstName": "Clark",
+      "lastName": "Kent",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "simplepassword"
+        }
+      ]
     }
   ]
 }

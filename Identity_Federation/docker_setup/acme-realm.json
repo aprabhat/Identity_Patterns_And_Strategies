@@ -1,48 +1,49 @@
 {
-  "realm": "Acme",
+  "realm": "acme",
   "enabled": true,
+  "clients": [
+    {
+      "clientId": "acme-app",
+	  "name": "acme-app",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "acmesecret",
+      "redirectUris": [
+        "http://localhost:8081/*"
+      ],
+      "baseUrl": "http://localhost:8081",
+      "directAccessGrantsEnabled": true,
+      "publicClient": false,
+      "protocol": "openid-connect",
+      "standardFlowEnabled": true
+    }
+  ],
   "users": [
     {
       "username": "peter",
       "enabled": true,
-      "email": "peter@acme.com",
+      "emailVerified": true,
       "firstName": "Peter",
       "lastName": "Parker",
       "credentials": [
         {
           "type": "password",
-          "value": "peter",
-          "temporary": false
+          "value": "simplepassword"
         }
       ]
     },
     {
-      "username": "diana",
+      "username": "tony",
       "enabled": true,
-      "email": "diana@acme.com",
-      "firstName": "Diana",
-      "lastName": "Prince",
+      "emailVerified": true,
+      "firstName": "Tony",
+      "lastName": "Stark",
       "credentials": [
         {
           "type": "password",
-          "value": "diana",
-          "temporary": false
+          "value": "simplepassword"
         }
       ]
-    }
-  ],
-  "clients": [
-    {
-      "clientId": "acme-app",
-      "enabled": true,
-	  "name": "acme-app",
-      "publicClient": false,
-      "clientAuthenticatorType": "client-secret",
-      "redirectUris": [
-        "http://localhost:9001/*"
-      ],
-      "protocol": "openid-connect",
-      "secret": "acmesecret"
     }
   ]
 }

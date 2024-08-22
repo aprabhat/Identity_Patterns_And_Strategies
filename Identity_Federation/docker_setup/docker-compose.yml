@@ -6,12 +6,13 @@ services:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
     ports:
-      - "9001:8080"
+      - "9001:8080"  # Maps port 9001 on host to port 8080 in container
     volumes:
       - ./acme-realm.json:/opt/keycloak/data/import/acme-realm.json
-      - ./entrypoint.sh:/opt/keycloak/entrypoint.sh
-    command: >
-      /bin/bash -c "chmod +x /opt/keycloak/entrypoint.sh && /opt/keycloak/entrypoint.sh"
+      - acme-data:/opt/keycloak/data
+    command:
+      - start-dev
+      - --import-realm
 
   globex-keycloak:
     image: quay.io/keycloak/keycloak:25.0.2
@@ -20,9 +21,14 @@ services:
       - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=admin
     ports:
-      - "9002:8080"
+      - "9002:8080"  # Maps port 9002 on host to port 8080 in container
     volumes:
       - ./globex-realm.json:/opt/keycloak/data/import/globex-realm.json
-      - ./entrypoint.sh:/opt/keycloak/entrypoint.sh
-    command: >
-      /bin/bash -c "chmod +x /opt/keycloak/entrypoint.sh && /opt/keycloak/entrypoint.sh"
+      - globex-data:/opt/keycloak/data
+    command:
+      - start-dev
+      - --import-realm
+
+volumes:
+  acme-data:
+  globex-data:
