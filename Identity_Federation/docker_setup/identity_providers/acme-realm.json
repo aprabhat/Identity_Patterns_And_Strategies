@@ -1,0 +1,68 @@
+{
+  "realm": "acme",
+  "enabled": true,
+  "identityProviders": [
+    {
+      "alias": "globex",
+      "providerId": "keycloak-oidc",
+      "enabled": true,
+      "updateProfileFirstLoginMode": "on",
+      "trustEmail": true,
+      "storeToken": true,
+      "addReadTokenRoleOnCreate": false,
+      "authenticateByDefault": false,
+      "linkOnly": false,
+      "firstBrokerLoginFlowAlias": "first broker login",
+      "config": {
+        "authorizationUrl": "http://localhost:9002/realms/globex-realm/protocol/openid-connect/auth",
+        "tokenUrl": "http://localhost:9002/realms/globex-realm/protocol/openid-connect/token",
+        "clientId": "acme-app",
+        "clientSecret": "acmesecret"
+      }
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "acme-app",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "acmesecret",
+      "redirectUris": [
+        "http://localhost:8081/*"
+      ],
+      "baseUrl": "http://localhost:8081",
+      "directAccessGrantsEnabled": true,
+      "publicClient": false,
+      "protocol": "openid-connect",
+      "standardFlowEnabled": true
+    }
+  ],
+  "users": [
+    {
+      "username": "peter",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Peter",
+      "lastName": "Parker",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "simplepassword"
+        }
+      ]
+    },
+    {
+      "username": "tony",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Tony",
+      "lastName": "Stark",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "simplepassword"
+        }
+      ]
+    }
+  ]
+}
