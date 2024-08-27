@@ -1,1 +1,1 @@
-Sample app to demostrate identity federation
+Sample app to demonstrate identity federation
